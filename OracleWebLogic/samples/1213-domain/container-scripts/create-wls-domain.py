@@ -45,7 +45,7 @@ cmo.setPassword(admin_pass)
 # Write the domain and close the domain template
 # ==============================================
 setOption('OverwriteDomain', 'true')
-setOption('ServerStartMode', production_mode)
+setOption('ServerStartMode', 'prod')
 
 cd('/NMProperties')
 set('ListenAddress','')
