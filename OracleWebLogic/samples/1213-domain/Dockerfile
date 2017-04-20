@@ -23,7 +23,7 @@
 
 # Pull base image
 # ---------------
-FROM oracle/weblogic:12.1.3-generic
+FROM oracle/weblogic:12.1.3-developer
 
 # Maintainer
 # ----------
@@ -55,8 +55,7 @@ RUN /u01/oracle/wlst /u01/oracle/create-wls-domain.py && \
     echo "username=weblogic" > /u01/oracle/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \ 
     echo "password=$ADMIN_PASSWORD" >> /u01/oracle/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \
     echo ". /u01/oracle/user_projects/domains/base_domain/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc && \ 
-    echo "export PATH=$PATH:/u01/oracle/wlserver/common/bin:/u01/oracle/user_projects/domains/base_domain/bin" >> /u01/oracle/.bashrc && \
-    cp /u01/oracle/commEnv.sh /u01/oracle/wlserver/common/bin/commEnv.sh && \
+    echo "export PATH=$PATH:/u01/oracle/wlserver/common/bin:/u01/oracle/user_projects/domains/base_domain/bin" >> /u01/oracle/.bashrc && \    
     rm /u01/oracle/create-wls-domain.py /u01/oracle/jaxrs2-template.jar 
 
 # Expose Node Manager default port, and also default http/https ports for admin console
